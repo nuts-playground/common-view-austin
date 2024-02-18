@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { isDarkAtom } from '../../atoms';
