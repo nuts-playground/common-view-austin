@@ -1,13 +1,14 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { Header } from './components/header/header';
-import { Footer } from './components/footer/footer';
+import { Header } from './components/header';
+import { Footer } from './components/footer';
+import { Main } from './components/main';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './theme';
-import { useRecoilValue } from 'recoil';
-import { isDarkAtom } from './atoms';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { isDarkAtom, startTextAtom } from './atoms';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -64,27 +65,57 @@ body{
   font-family: "Source Sans 3", sans-serif;
   color: ${(props) => props.theme.textColor};
   background-color: ${(props) => props.theme.bgColor};
-  transition: all 0.2s
+  /* transition: all 0.2s */
 }
 a{
   text-decoration: none;
   color:inherit;
 }
 `;
+const Container = styled.div`
+    position: relative;
+    width: 100%;
+`;
+const StartText = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150px;
+    color: white;
+    letter-spacing: 10px;
+    font-weight: 700;
+    transition: all 2s;
+`;
 
 function App() {
     const isDark = useRecoilValue(isDarkAtom);
+    const startText = useRecoilValue(startTextAtom);
+    const setStartText = useSetRecoilState(startTextAtom);
+    useEffect(() => {
+        setTimeout(() => {
+            setStartText(false);
+        }, 1000);
+    }, []);
+
     return (
         <>
             <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
                 <BrowserRouter>
                     <GlobalStyle />
-                    <Header />
-                    <Routes>
-                        <Route path="/" element={<h1 style={{ marginTop: '100px', height: '700px' }}>Main</h1>} />
-                        <Route path="/sub" element={<h1 style={{ marginTop: '100px', height: '700px' }}>Sub</h1>} />
-                    </Routes>
-                    <Footer />
+                    {startText ? <StartText>NOT WORKING</StartText> : null}
+                    <Container style={startText ? { filter: 'blur(4px)' } : undefined}>
+                        <Header />
+                        <Routes>
+                            <Route path="/" element={<Main />} />
+                            <Route path="/sub" element={<h1 style={{ marginTop: '100px', height: '700px' }}>Sub</h1>} />
+                        </Routes>
+                        <Footer />
+                    </Container>
                 </BrowserRouter>
             </ThemeProvider>
         </>

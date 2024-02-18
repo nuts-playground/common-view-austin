@@ -6,8 +6,8 @@ const Container = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    background-color: ${(props) => props.theme.bgColor};
-    transition: all 0.2s;
+    background-color: transparent;
+
     width: 100%;
     padding: 20px;
 `;
