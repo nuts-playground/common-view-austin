@@ -1,5 +1,13 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import { Header } from './components/header/header';
+import { Footer } from './components/footer/footer';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from './theme';
+import { useRecoilValue } from 'recoil';
+import { isDarkAtom } from './atoms';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -55,7 +63,8 @@ table {
 body{
   font-family: "Source Sans 3", sans-serif;
   color: ${(props) => props.theme.textColor};
-  background-color: ${(props) => props.theme.bgColor}
+  background-color: ${(props) => props.theme.bgColor};
+  transition: all 0.2s
 }
 a{
   text-decoration: none;
@@ -64,9 +73,20 @@ a{
 `;
 
 function App() {
+    const isDark = useRecoilValue(isDarkAtom);
     return (
         <>
-            <GlobalStyle />
+            <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+                <BrowserRouter>
+                    <GlobalStyle />
+                    <Header />
+                    <Routes>
+                        <Route path="/" element={<h1 style={{ marginTop: '100px', height: '700px' }}>Main</h1>} />
+                        <Route path="/sub" element={<h1 style={{ marginTop: '100px', height: '700px' }}>Sub</h1>} />
+                    </Routes>
+                    <Footer />
+                </BrowserRouter>
+            </ThemeProvider>
         </>
     );
 }
