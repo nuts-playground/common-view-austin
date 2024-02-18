@@ -5,7 +5,6 @@ export const lightTheme: DefaultTheme = {
     textColor: 'black',
     accentColor: 'red',
     footerBgColor: 'black',
-    footerTextColor: '#eff3f7',
 };
 
 export const darkTheme: DefaultTheme = {
@@ -13,5 +12,4 @@ export const darkTheme: DefaultTheme = {
     textColor: 'white',
     accentColor: 'blue',
     footerBgColor: 'black',
-    footerTextColor: 'black',
 };
