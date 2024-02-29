@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
-import { Main } from './components/main';
+import { Home } from './routes/home';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './theme';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { isDarkAtom, startTextAtom } from './atoms';
+import { ToDo } from './components/toDo/toDo';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -65,7 +66,7 @@ body{
   font-family: "Source Sans 3", sans-serif;
   color: ${(props) => props.theme.textColor};
   background-color: ${(props) => props.theme.bgColor};
-  /* transition: all 0.2s */
+
 }
 a{
   text-decoration: none;
@@ -73,7 +74,6 @@ a{
 }
 `;
 const Container = styled.div`
-    position: relative;
     width: 100%;
 `;
 const StartText = styled.div`
@@ -89,7 +89,7 @@ const StartText = styled.div`
     color: white;
     letter-spacing: 10px;
     font-weight: 700;
-    transition: all 2s;
+    transition: all 0.4s;
 `;
 
 function App() {
@@ -107,12 +107,13 @@ function App() {
             <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
                 <BrowserRouter>
                     <GlobalStyle />
-                    {startText ? <StartText>NOT WORKING</StartText> : null}
+                    <StartText style={startText ? { opacity: 1 } : { opacity: 0 }}>NOT WORKING</StartText>
+                    <ToDo />
+
                     <Container style={startText ? { filter: 'blur(4px)' } : undefined}>
                         <Header />
                         <Routes>
-                            <Route path="/" element={<Main />} />
-                            <Route path="/sub" element={<h1 style={{ marginTop: '100px', height: '700px' }}>Sub</h1>} />
+                            <Route path="/" element={<Home />} />
                         </Routes>
                         <Footer />
                     </Container>
