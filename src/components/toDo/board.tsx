@@ -3,6 +3,7 @@ import { Snapshot } from 'recoil';
 import styled from 'styled-components';
 import { IToDo } from '../../atoms';
 import { useForm } from 'react-hook-form';
+import { BoardList } from './boardList';
 const Container = styled.div`
     background-color: white;
     width: calc(50% - 10px);
@@ -70,8 +71,8 @@ export const Board = ({ boardId, index, toDos }: IBoard) => {
                                 ref={magic.innerRef}
                                 {...magic.droppableProps}
                             >
-                                {toDos.map((toDo) => {
-                                    return <></>;
+                                {toDos.map((toDo, index) => {
+                                    return <BoardList toDoId={toDo.id} toDoText={toDo.text} index={index} />;
                                 })}
                             </Area>
                         );

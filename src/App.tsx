@@ -115,6 +115,7 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                         </Routes>
+
                         <Footer />
                     </Container>
                 </BrowserRouter>
