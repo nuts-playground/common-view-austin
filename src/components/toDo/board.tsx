@@ -69,7 +69,11 @@ export const Board = ({ boardId, index, toDos }: IBoard) => {
                                 isDraggingOver={snapshot.isDraggingOver}
                                 ref={magic.innerRef}
                                 {...magic.droppableProps}
-                            ></Area>
+                            >
+                                {toDos.map((toDo) => {
+                                    return <></>;
+                                })}
+                            </Area>
                         );
                     }}
                 </Droppable>
