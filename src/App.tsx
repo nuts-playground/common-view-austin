@@ -55,6 +55,9 @@ q:before, q:after {
   content: '';
   content: none;
 }
+input:focus {
+    outline: none;
+}
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -108,7 +111,7 @@ function App() {
                 <BrowserRouter>
                     <GlobalStyle />
                     <StartText style={startText ? { opacity: 1 } : { opacity: 0 }}>NOT WORKING</StartText>
-                    <ToDo />
+                    {/* <ToDo /> */}
 
                     <Container style={startText ? { filter: 'blur(4px)' } : undefined}>
                         <Header />
