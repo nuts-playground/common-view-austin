@@ -115,6 +115,15 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                         </Routes>
+                        <Routes>
+                            <Route path="introduce" element={<Home />} />
+                        </Routes>
+                        <Routes>
+                            <Route path="toDo" element={<Home />} />
+                        </Routes>
+                        <Routes>
+                            <Route path="nav4" element={<Home />} />
+                        </Routes>
 
                         <Footer />
                     </Container>
