@@ -29,16 +29,18 @@ const BoardWrap = styled.div`
 `;
 
 export const ToDo = () => {
-    const toDoOpen = useRecoilValue(onToDo);
+    // const toDoOpen = useRecoilValue(onToDo)/;
     const toDo = useRecoilValue(toDoState);
-    const onDragEnd = (info: DropResult) => {};
+    const onDragEnd = (info: DropResult) => {
+        console.log(info);
+    };
     return (
         <DragDropContext onDragEnd={onDragEnd}>
-            <Container style={{ opacity: toDoOpen ? 1 : 0 }}>
+            <Container style={{ opacity: 1 }}>
                 <Title>오늘의 할 일</Title>
                 <BoardWrap>
-                    {Object.keys(toDo).map((boardId, index) => {
-                        return <Board boardId={boardId} index={index} toDos={toDo[boardId]}></Board>;
+                    {Object.keys(toDo).map((boardId) => {
+                        return <Board boardId={boardId} key={boardId} toDos={toDo[boardId]}></Board>;
                     })}
                 </BoardWrap>
             </Container>

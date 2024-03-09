@@ -39,7 +39,6 @@ const Area = styled.div<IArea>`
 
 interface IBoard {
     boardId: string;
-    index: number;
     toDos: IToDo[];
 }
 interface IForm {
@@ -49,7 +48,8 @@ interface IArea {
     isDraggingOver: boolean;
 }
 
-export const Board = ({ boardId, index, toDos }: IBoard) => {
+export const Board = ({ boardId, toDos }: IBoard) => {
+    console.log(boardId);
     const { register, handleSubmit, setValue } = useForm<IForm>();
     const onValid = ({ toDo }: IForm) => {
         console.log(toDo);
@@ -60,7 +60,11 @@ export const Board = ({ boardId, index, toDos }: IBoard) => {
             <Wrap>
                 <Title>{boardId}</Title>
                 <Form onSubmit={handleSubmit(onValid)}>
-                    <Input {...register('toDo', { required: true })} type="text" placeholder="Write here" />
+                    <Input
+                        {...register('toDo', { required: true })}
+                        type="text"
+                        placeholder={`Write here ${boardId}`}
+                    />
                 </Form>
 
                 <Droppable droppableId={boardId}>
@@ -71,9 +75,12 @@ export const Board = ({ boardId, index, toDos }: IBoard) => {
                                 ref={magic.innerRef}
                                 {...magic.droppableProps}
                             >
-                                {toDos.map((toDo, index) => {
-                                    return <BoardList toDoId={toDo.id} toDoText={toDo.text} index={index} />;
+                                {toDos?.map((toDo, index) => {
+                                    return (
+                                        <BoardList key={toDo.id} toDoId={toDo.id} toDoText={toDo.text} index={index} />
+                                    );
                                 })}
+                                {magic.placeholder}
                             </Area>
                         );
                     }}

@@ -24,7 +24,7 @@ interface IState {
 export const toDoState = atom<IState>({
     key: 'toDoState',
     default: {
-        '해야 할 것': [{ id: 1, text: 'hello' }],
-        '완료한 것': [],
+        'To Do': [{ id: 215515, text: 'hello' }],
+        Done: [{ id: 12515, text: 'hi' }],
     },
 });
