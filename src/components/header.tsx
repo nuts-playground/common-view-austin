@@ -64,13 +64,16 @@ const SearchInput = styled(motion.input)`
     right: 25px;
     padding: 7px 5px 7px 30px;
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid #e5e7eb;
+    /* border: 1px solid black; */
     transform-origin: right center;
 `;
 const SearchLogo = styled(motion.svg)`
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     position: relative;
+    fill: rgb(107 114 128);
+
     z-index: 2;
     /* left: 25px; */
 `;
