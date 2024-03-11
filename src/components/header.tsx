@@ -16,6 +16,7 @@ const Container = styled.div`
     background-color: transparent;
     width: 100%;
     padding: 20px;
+    z-index: 10;
 `;
 
 const Wrap = styled.div`
@@ -25,7 +26,7 @@ const Wrap = styled.div`
 const Logo = styled(motion.svg)`
     width: 40px;
     height: 40px;
-    fill: red;
+    fill: orange;
     path {
         stroke: black;
         stroke-width: 2px;
@@ -66,6 +67,7 @@ const SearchInput = styled(motion.input)`
     background-color: transparent;
     border: 1px solid #e5e7eb;
     /* border: 1px solid black; */
+    border-radius: 10px;
     transform-origin: right center;
 `;
 const SearchLogo = styled(motion.svg)`
@@ -164,16 +166,16 @@ export const Header = () => {
                             {nav4Match ? <Circle layoutId="nav" /> : null}
                         </Link>
                     </NavList>
-                    {/* <NavList>
-                        <button
+                    <NavList>
+                        {/* <button
                             onClick={() => {
                                 setIsDark((prev) => !prev);
                             }}
                         >
                             {isDark ? 'Light Mode' : 'Dark Mode'}
-                        </button>
+                        </button> */}
                         <button onClick={toDoOpen}>Write To Do</button>
-                    </NavList> */}
+                    </NavList>
                 </Nav>
             </Wrap>
         </Container>

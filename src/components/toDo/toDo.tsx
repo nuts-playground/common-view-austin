@@ -5,6 +5,15 @@ import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 import { toDoState } from '../../atoms';
 import { Board } from './board';
 
+const Wrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+`;
+
 const Container = styled.div`
     position: fixed;
     width: 500px;
@@ -35,15 +44,17 @@ export const ToDo = () => {
         console.log(info);
     };
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            <Container style={{ opacity: 1 }}>
-                <Title>오늘의 할 일</Title>
-                <BoardWrap>
-                    {Object.keys(toDo).map((boardId) => {
-                        return <Board boardId={boardId} key={boardId} toDos={toDo[boardId]}></Board>;
-                    })}
-                </BoardWrap>
-            </Container>
-        </DragDropContext>
+        <Wrapper>
+            <DragDropContext onDragEnd={onDragEnd}>
+                <Container style={{ opacity: 1 }}>
+                    <Title>오늘의 할 일</Title>
+                    <BoardWrap>
+                        {Object.keys(toDo).map((boardId) => {
+                            return <Board boardId={boardId} key={boardId} toDos={toDo[boardId]}></Board>;
+                        })}
+                    </BoardWrap>
+                </Container>
+            </DragDropContext>
+        </Wrapper>
     );
 };

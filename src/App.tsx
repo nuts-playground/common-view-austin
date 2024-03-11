@@ -27,6 +27,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 main, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
+  font-size:13px;
   margin: 0;
   padding: 0;
   border: 0;
@@ -39,6 +40,7 @@ footer, header, hgroup, main, menu, nav, section {
 }
 *[hidden] {
     display: none;
+
     
 }
 body {
@@ -64,6 +66,7 @@ table {
 }
 *{
   box-sizing:border-box;
+  font-size:14px
 }
 body{
   font-family: "Source Sans 3", sans-serif;
