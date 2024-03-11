@@ -13,7 +13,8 @@ const Container = styled.div`
     width: 100%;
     top: 0;
     left: 0;
-    background-color: transparent;
+    background-color: white;
+    /* background-color: transparent; */
     width: 100%;
     padding: 20px;
     z-index: 10;
@@ -143,39 +144,36 @@ export const Header = () => {
                     </SearchForm>
 
                     <NavList>
-                        <Link to="/">
-                            Home
-                            {homeMatch ? <Circle layoutId="nav" /> : null}
-                        </Link>
+                        <Link to="/">홈{homeMatch ? <Circle layoutId="nav" /> : null}</Link>
                     </NavList>
                     <NavList>
                         <Link to="introduce">
-                            Introduce
+                            팀 소개
                             {introMatch ? <Circle layoutId="nav" /> : null}
                         </Link>
                     </NavList>
                     <NavList>
                         <Link to="toDo">
-                            To do
+                            작업물
                             {toDoMatch ? <Circle layoutId="nav" /> : null}
                         </Link>
                     </NavList>
                     <NavList>
                         <Link to="nav4">
-                            nav4
+                            공사중
                             {nav4Match ? <Circle layoutId="nav" /> : null}
                         </Link>
                     </NavList>
-                    <NavList>
-                        {/* <button
+                    {/* <NavList>
+                        <button
                             onClick={() => {
                                 setIsDark((prev) => !prev);
                             }}
                         >
                             {isDark ? 'Light Mode' : 'Dark Mode'}
-                        </button> */}
+                        </button>
                         <button onClick={toDoOpen}>Write To Do</button>
-                    </NavList>
+                    </NavList> */}
                 </Nav>
             </Wrap>
         </Container>

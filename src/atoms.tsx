@@ -28,3 +28,8 @@ export const toDoState = atom<IState>({
         Done: [{ id: 12515, text: 'hi' }],
     },
 });
+
+export const boxState = atom({
+    key: 'boxState',
+    default: 0,
+});

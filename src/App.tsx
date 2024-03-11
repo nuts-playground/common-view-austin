@@ -10,6 +10,8 @@ import { lightTheme, darkTheme } from './theme';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { isDarkAtom, startTextAtom } from './atoms';
 import { ToDo } from './components/toDo/toDo';
+// import { ProjectOv } from './routes/projectOv';
+import { useMatch } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -92,10 +94,11 @@ const StartText = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 150px;
-    color: white;
+    color: black;
     letter-spacing: 10px;
     font-weight: 700;
     transition: all 0.4s;
+    /* z-index: 15; */
 `;
 
 function App() {
@@ -120,6 +123,9 @@ function App() {
                         <Header />
                         <Routes>
                             <Route path="/" element={<Home />} />
+                        </Routes>
+                        <Routes>
+                            <Route path="/project/:listId" element={<Home />} />
                         </Routes>
                         <Routes>
                             <Route path="introduce" element={<Home />} />
