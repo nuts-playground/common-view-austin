@@ -10,12 +10,13 @@ import { useState } from 'react';
 
 const Container = styled.div`
     position: fixed;
-    width: 100%;
+
     top: 0;
     left: 0;
     background-color: white;
     /* background-color: transparent; */
     width: 100%;
+
     padding: 20px;
     z-index: 10;
 `;
