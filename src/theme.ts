@@ -3,7 +3,7 @@ import { DefaultTheme } from 'styled-components/dist/types';
 export const lightTheme: DefaultTheme = {
     bgColor: 'white',
     //  bgColor: '  #eff3f7',
-    textColor: 'black',
+    textColor: 'rgb(55, 53, 47)',
     accentColor: 'red',
     footerBgColor: 'black',
 };
