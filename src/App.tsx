@@ -10,8 +10,9 @@ import { lightTheme, darkTheme } from './theme';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { isDarkAtom, startTextAtom } from './atoms';
 import { ToDo } from './components/toDo/toDo';
+import { useQuery } from 'react-query';
+import { userInfoo } from './api';
 // import { ProjectOv } from './routes/projectOv';
-import { useMatch } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -100,8 +101,20 @@ const StartText = styled.div`
     transition: all 0.4s;
     /* z-index: 15; */
 `;
+interface IUser {
+    name: string;
+}
 
 function App() {
+    const { isLoading, data } = useQuery('users', userInfoo);
+    useEffect(() => {
+        // const fetcher = async () => {
+        //     const response = await fetch('./data.json');
+        //     const json = await response.json();
+        //     console.log(json);
+        // };
+        // fetcher();
+    }, []);
     const isDark = useRecoilValue(isDarkAtom);
     const startText = useRecoilValue(startTextAtom);
     const setStartText = useSetRecoilState(startTextAtom);
