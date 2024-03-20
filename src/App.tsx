@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import React, { useEffect, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useMatch } from 'react-router-dom';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import { Home } from './routes/home';
@@ -12,7 +12,7 @@ import { isDarkAtom, startTextAtom } from './atoms';
 import { ToDo } from './components/toDo/toDo';
 import { useQuery } from 'react-query';
 import { userInfoo } from './api';
-// import { ProjectOv } from './routes/projectOv';
+import { Introduce } from './routes/introduce';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -129,7 +129,7 @@ function App() {
             <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
                 <BrowserRouter>
                     <GlobalStyle />
-                    <StartText style={startText ? { opacity: 1 } : { opacity: 0 }}>NOT WORKING</StartText>
+
                     {/* <ToDo /> */}
 
                     <Container style={startText ? { filter: 'blur(4px)' } : undefined}>
@@ -141,7 +141,7 @@ function App() {
                             <Route path="/project/:listId" element={<Home />} />
                         </Routes>
                         <Routes>
-                            <Route path="introduce" element={<Home />} />
+                            <Route path="introduce" element={<Introduce />} />
                         </Routes>
                         <Routes>
                             <Route path="toDo" element={<Home />} />
