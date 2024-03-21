@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
+import { usersState } from '../atoms';
+import { useRecoilValue } from 'recoil';
 
 const Container = styled.div`
     width: 100%;
@@ -41,11 +43,30 @@ const IntroduceImg = styled.div`
     border-radius: 10px;
     margin: auto;
 `;
+const Test = styled.ul`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+`;
+const TestList = styled.li`
+    width: 100%;
+    height: 200px;
+    background-color: #e2e2e2;
+    border-radius: 20px;
+    text-align: center;
+`;
+const UserImg = styled.img`
+    width: 120px;
+    height: 120px;
+    position: relative;
+    top: -40px;
+`;
 interface IUsers {
     name: string;
 }
 
 export const Introduce = () => {
+    const users = useRecoilValue(usersState);
     return (
         <Container>
             <Wrap>
@@ -55,6 +76,13 @@ export const Introduce = () => {
                 </SubTitle>
                 <IntroduceImg />
                 <Title>팀원 소개 👨‍👦‍👦</Title>
+                <Test>
+                    {users.map((user) => (
+                        <TestList>
+                            <UserImg src="/testImg.png"></UserImg>
+                        </TestList>
+                    ))}
+                </Test>
             </Wrap>
         </Container>
     );
