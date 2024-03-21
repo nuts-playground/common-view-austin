@@ -39,3 +39,15 @@ export const boxState = atom({
 interface IUsers {
     name: string;
 }
+export const usersState = atom<IUsers[]>({
+    key: 'usersState',
+    default: [
+        { name: '오스틴' },
+        { name: '호세' },
+        { name: '그린' },
+        { name: '에릭' },
+        { name: '아이언' },
+        { name: '에릭' },
+        { name: '조니' },
+    ],
+});
