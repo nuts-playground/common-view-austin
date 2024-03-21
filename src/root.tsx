@@ -11,7 +11,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { isDarkAtom, startTextAtom } from './atoms';
 import { ToDo } from './components/toDo/toDo';
 import { useQuery } from 'react-query';
-import { userInfo } from './api';
+// import { userInfo } from './api';
 import { Introduce } from './routes/introduce';
 import { Outlet } from 'react-router-dom';
 
@@ -109,11 +109,10 @@ interface ITest {
     users: test2[];
 }
 function Root() {
-    const { isLoading, data } = useQuery<ITest>('users', userInfo);
+    // const { isLoading, data } = useQuery<ITest>('users', userInfo);
     const isDark = useRecoilValue(isDarkAtom);
     const startText = useRecoilValue(startTextAtom);
     const setStartText = useSetRecoilState(startTextAtom);
-    console.log(data);
 
     useEffect(() => {
         setTimeout(() => {
