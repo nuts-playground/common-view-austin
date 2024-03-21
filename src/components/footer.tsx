@@ -15,6 +15,7 @@ const Row = styled.div`
     justify-content: space-between;
 `;
 const FooterBox = styled.div``;
+
 export const Footer = () => {
     return (
         <Container>
@@ -22,10 +23,12 @@ export const Footer = () => {
                 <Row>
                     <FooterBox>
                         <ul>
-                            <li>Home</li>
+                            <li>홈</li>
+                            <li>팀 소개</li>
+                            <li>작업물</li>
                         </ul>
                     </FooterBox>
-                    <FooterBox></FooterBox>
+                    <FooterBox>g</FooterBox>
                 </Row>
             </Wrap>
         </Container>
