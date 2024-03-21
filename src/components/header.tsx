@@ -40,7 +40,8 @@ const Nav = styled.ul`
     align-items: center;
 `;
 const NavList = styled.li`
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 700;
     margin-left: 50px;
     position: relative;
 `;

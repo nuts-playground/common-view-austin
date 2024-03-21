@@ -6,6 +6,28 @@ const Container = styled.div`
     background-color: ${(props) => props.theme.footerBgColor};
     color: white;
 `;
+const Wrap = styled.div`
+    max-width: 1160px;
+    margin: auto;
+`;
+const Row = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+const FooterBox = styled.div``;
 export const Footer = () => {
-    return <Container>푸터</Container>;
+    return (
+        <Container>
+            <Wrap>
+                <Row>
+                    <FooterBox>
+                        <ul>
+                            <li>Home</li>
+                        </ul>
+                    </FooterBox>
+                    <FooterBox></FooterBox>
+                </Row>
+            </Wrap>
+        </Container>
+    );
 };

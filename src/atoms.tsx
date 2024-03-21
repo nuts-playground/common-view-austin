@@ -33,3 +33,9 @@ export const boxState = atom({
     key: 'boxState',
     default: 0,
 });
+
+//
+
+interface IUsers {
+    name: string;
+}

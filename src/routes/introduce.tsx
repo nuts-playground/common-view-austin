@@ -10,16 +10,20 @@ const Wrap = styled.div`
     margin: auto;
 `;
 const Title = styled(motion.h1)`
-    font-size: 42px;
+    font-size: 26px;
     padding: 40px 0;
 `;
 const SubTitle = styled.h1`
-    font-size: 24px;
+    font-size: 18px;
     margin-bottom: 20px;
+    span {
+        color: orange;
+    }
 `;
 const Text = styled.p`
     font-size: 18px;
-    color: rgb(155, 154, 151);
+    /* color: rgb(155, 154, 151); */
+    color: #222222;
     line-height: 1.3;
     margin-top: 30px;
     span {
@@ -37,20 +41,20 @@ const IntroduceImg = styled.div`
     border-radius: 10px;
     margin: auto;
 `;
+interface IUsers {
+    name: string;
+}
 
 export const Introduce = () => {
     return (
         <Container>
             <Wrap>
-                <Title> Not-Working 을 소개합니다 😀</Title>
-                <SubTitle>우리 팀은 서로의 개발 경험과 지식을 공유하며 성장하는 것을 목표로 하고 있습니다.</SubTitle>
-
+                <Title>Not-Working 을 소개합니다 😀</Title>
+                <SubTitle>
+                    저희 팀은 서로의 개발 경험과 지식을 공유하며 성장하는 것을 <span>목표</span>로 하고 있습니다.
+                </SubTitle>
                 <IntroduceImg />
-                <Text>
-                    우리 팀은 친한 회사 직원들끼리 모여 개인적인 학습과 개발 능력 향상을 위해 만들어진 팀입니다. 팀
-                    이름은 <span>"not-working"</span>으로, 이는 우리가 회사에서의 업무가 아닌 개인 프로젝트와 공부에
-                    집중하고자 한다는 의미를 담고 있습니다.
-                </Text>
+                <Title>팀원 소개 👨‍👦‍👦</Title>
             </Wrap>
         </Container>
     );
