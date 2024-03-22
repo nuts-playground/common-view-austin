@@ -38,16 +38,18 @@ export const boxState = atom({
 
 interface IUsers {
     name: string;
+    major: string;
+    backColor: string;
 }
 export const usersState = atom<IUsers[]>({
     key: 'usersState',
     default: [
-        { name: '오스틴' },
-        { name: '호세' },
-        { name: '그린' },
-        { name: '에릭' },
-        { name: '아이언' },
-        { name: '에릭' },
-        { name: '조니' },
+        { name: '에릭', major: 'Javascript Dev', backColor: 'rgb(30 192 120)' },
+        { name: '그린', major: 'Backend Dev', backColor: 'rgb(45 180 0)' },
+        { name: '호세', major: 'Javascript Dev', backColor: 'rgb(45 180 0)' },
+        { name: '아이언', major: 'Backend Dev', backColor: 'rgb(28 57 187)' },
+        { name: '조니', major: 'Backend Dev', backColor: 'rgb(140 140 255)' },
+        { name: '테오', major: 'Frontend Dev', backColor: 'rgb(255 255 0)' },
+        { name: '오스틴', major: 'Frontend Dev', backColor: '#FF6F0F;' },
     ],
 });

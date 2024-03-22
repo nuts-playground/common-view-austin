@@ -13,7 +13,7 @@ const Container = styled.div`
 
     top: 0;
     left: 0;
-    background-color: white;
+    background-color: transparent;
     /* background-color: transparent; */
     width: 100%;
 
@@ -155,7 +155,7 @@ export const Header = () => {
                         </Link>
                     </NavList>
                     <NavList>
-                        <Link to="toDo">
+                        <Link to="project">
                             작업물
                             {toDoMatch ? <Circle layoutId="nav" /> : null}
                         </Link>

@@ -8,7 +8,7 @@ const Container = styled.div`
     padding: 100px 20px;
 `;
 const Wrap = styled.div`
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
 `;
 const Title = styled(motion.h1)`
@@ -38,22 +38,26 @@ const IntroduceImg = styled.div`
     background-image: url('/introduce.jpeg');
     background-position: center;
     background-size: cover;
-    width: 800px;
+    width: 900px;
     height: 400px;
     border-radius: 10px;
     margin: auto;
 `;
-const Test = styled.ul`
+const UsersWrap = styled.ul`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 50px;
 `;
-const TestList = styled.li`
+const UserBox = styled(motion.li)<{ backColor: string }>`
     width: 100%;
     height: 200px;
-    background-color: #e2e2e2;
+    background-color: ${(props) => props.backColor};
     border-radius: 20px;
+    color: ${(props) => (props.backColor === 'rgb(255 255 0)' ? 'black ' : 'white')};
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 8px 0px;
+    position: relative;
+    top: 0;
 `;
 const UserImg = styled.img`
     width: 120px;
@@ -76,13 +80,19 @@ export const Introduce = () => {
                 </SubTitle>
                 <IntroduceImg />
                 <Title>팀원 소개 👨‍👦‍👦</Title>
-                <Test>
+                <UsersWrap>
                     {users.map((user) => (
-                        <TestList>
+                        <UserBox
+                            whileHover={{ top: '-10px' }}
+                            transition={{ duration: 0.2 }}
+                            backColor={user.backColor}
+                        >
                             <UserImg src="/testImg.png"></UserImg>
-                        </TestList>
+                            <h1>{user.name}</h1>
+                            <p>{user.major}</p>
+                        </UserBox>
                     ))}
-                </Test>
+                </UsersWrap>
             </Wrap>
         </Container>
     );
